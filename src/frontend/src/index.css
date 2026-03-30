@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Instagram dark theme */
+    --background: 0 0 0;
+    --foreground: 0.95 0 0;
+    --card: 0.1 0 0;
+    --card-foreground: 0.95 0 0;
+    --popover: 0.12 0 0;
+    --popover-foreground: 0.95 0 0;
+    --primary: 0.65 0.22 0;
+    --primary-foreground: 0.98 0 0;
+    --secondary: 0.15 0 0;
+    --secondary-foreground: 0.7 0 0;
+    --muted: 0.15 0 0;
+    --muted-foreground: 0.6 0 0;
+    --accent: 0.15 0 0;
+    --accent-foreground: 0.95 0 0;
+    --destructive: 0.65 0.22 15;
+    --destructive-foreground: 0.98 0.005 240;
+    --border: 0.2 0 0;
+    --input: 0.18 0 0;
+    --ring: 0.65 0.22 0;
+
+    --chart-1: 0.65 0.22 0;
+    --chart-2: 0.62 0.22 295;
+    --chart-3: 0.65 0.22 15;
+    --chart-4: 0.75 0.18 120;
+    --chart-5: 0.7 0.2 60;
+
+    --sidebar: 0 0 0;
+    --sidebar-foreground: 0.95 0 0;
+    --sidebar-primary: 0.65 0.22 0;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.12 0 0;
+    --sidebar-accent-foreground: 0.95 0 0;
+    --sidebar-border: 0.2 0 0;
+    --sidebar-ring: 0.65 0.22 0;
+
+    /* Custom tokens */
+    --like-red: 0.65 0.22 15;
+    --insta-blue: 0.55 0.18 250;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: oklch(var(--border));
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(var(--muted-foreground));
+  }
+}
+
+@layer utilities {
+  .text-like-red {
+    color: oklch(var(--like-red));
+  }
+  .fill-like-red {
+    fill: oklch(var(--like-red));
+  }
+  .text-insta-blue {
+    color: oklch(var(--insta-blue));
+  }
+  .insta-gradient {
+    background: linear-gradient(
+      45deg,
+      #f09433,
+      #e6683c,
+      #dc2743,
+      #cc2366,
+      #bc1888
+    );
+  }
+  .insta-gradient-text {
+    background: linear-gradient(
+      45deg,
+      #f09433,
+      #e6683c,
+      #dc2743,
+      #cc2366,
+      #bc1888
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .story-ring {
+    background: linear-gradient(
+      45deg,
+      #f09433,
+      #e6683c,
+      #dc2743,
+      #cc2366,
+      #bc1888
+    );
+  }
+}
+
+@keyframes heart-pop {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.4);
+  }
+  60% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.heart-pop {
+  animation: heart-pop 0.4s ease-in-out;
+}
+
+@keyframes float-heart {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3) translateY(-80px);
+  }
+}
+
+.float-heart {
+  animation: float-heart 0.8s ease-out forwards;
+}
